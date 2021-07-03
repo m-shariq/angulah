@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>Sidebars · Bootstrap v5.0</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">    
+    
+  </head>
+  <body>
+
+
+
+<main>
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vertical" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <img  width="40" height="30" src="https://qalam.nust.edu.pk/odoocms_assets/static/img/logo.svg" alt="">
+      <span class="fs-4">Dashboard</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link text-white"  [routerLink]="['../student']" routerLinkActive="active">
+          <i class="fas fa-home"></i>
+          <span style="margin-left: 6px;">Home</span>
+
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white" [routerLink]="['../studentApply']" routerLinkActive="active">
+          <i class="fab fa-wpforms"></i>
+          <span style="margin-left: 6px;">Apply For Leave</span>
+
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link active" aria-current="page" [routerLink]="['../studentStatus']" routerLinkActive="active">
+          <i class="fas fa-info-circle"></i>
+          <span style="margin-left: 6px;">Leave Status</span>
+
+        </a>
+      </li>
+
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a style="margin-left: 10px;" href="#" class="d-flex align-items-center text-white text-decoration-none " (click)="signout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <strong style="margin-left: 10px;">SIGN OUT</strong>
+      </a>
+    </div>
+  </div>
+  <div class="right" style="overflow-y: auto;">    
+  <div class="nav1">
+    <div style="color:azure; float: right; margin: 15px; font-size: 25px;">{{ rxTime | date: 'hh:mm:ss a' }}</div>
+  </div>
+  
+  <div class="others">
+    <h3 style="text-align: center;">Leave Status</h3>
+    <hr>
+    <div class="container">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Date From</th>
+          <th scope="col">Total Days</th>
+          <th scope="col">Reason</th>
+          <th scope="col">Faculty Status</th>
+          
+          <th scope="col">Hod Status</th>
+          
+          <th scope="col">Status</th>
+          <th scope="col">HOD message</th>
+          <th scope="col">Print</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let leave of leaves">
+            <td>{{ leave.id }}</td>
+            <td>{{ leave.date_from }}</td>
+            <td>{{ leave.leave_days }}</td>
+            <td>{{leave.student_message}}</td>
+            <td *ngIf="leave.faculty_approval === 'pending' ;else elseBlock">{{ leave.faculty_approval }}</td>
+            <ng-template #elseBlock>
+              <td>{{ leave.faculty_approval }}</td>
+            </ng-template>
+            
+            <td *ngIf="leave.hod_approval === 'pending' ;else elseBlock2">
+                  {{ leave.hod_approval }}</td>
+            <ng-template #elseBlock2>
+              <td>{{ leave.hod_approval }}</td>
+            </ng-template>
+            
+            <td *ngIf="leave.hod_approval === 'pending' && leave.faculty_approval === 'pending'">{{ leave.hod_approval }}</td>
+            <td *ngIf="leave.hod_approval === 'approved' && leave.faculty_approval === 'approved'">{{ leave.hod_approval }}</td>
+            <td *ngIf="leave.faculty_approval === 'rejected'">{{ leave.faculty_approval }}</td>
+            <td *ngIf="leave.hod_approval === 'rejected' && leave.faculty_approval === 'approved'">{{ leave.hod_approval }}</td>
+            <td *ngIf="leave.hod_approval === 'pending' && leave.faculty_approval === 'approved'">{{ leave.hod_approval }}</td>
+            <td>{{ leave.hod_message }}</td> 
+            <td><button *ngIf="leave.hod_approval === 'approved' && leave.faculty_approval === 'approved'" class="btn btn-primary" (click)="genLeaveForm(leave.id)" >Print</button></td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div> 
+</main>
+
+
+  </body>
+</html>

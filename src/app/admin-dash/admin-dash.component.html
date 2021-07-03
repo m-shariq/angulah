@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>Sidebars · Bootstrap v5.0</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">    
+    
+  </head>
+  <body>
+
+
+
+<main>
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vertical" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <img  width="40" height="30" src="https://qalam.nust.edu.pk/odoocms_assets/static/img/logo.svg" alt="">
+      <span class="fs-4">Dashboard</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page" [routerLink]="['../admin']" routerLinkActive="active">
+          <i class="fas fa-home"></i>
+          <span style="margin-left: 6px;">Home</span>
+
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white" [routerLink]="['../addUser']" routerLinkActive="active">
+          <i class="fas fa-user-plus"></i>
+          <span style="margin-left: 6px;">Add User</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white" [routerLink]="['../updateUser']" routerLinkActive="active">
+          <i class="fas fa-user-edit"></i>
+          <span style="margin-left: 6px;">Update User</span>
+
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white" [routerLink]="['../deleteUser']" routerLinkActive="active">
+          <i class="fas fa-user-times"></i>
+          <span style="margin-left: 6px;">Delete User</span>
+
+        </a>
+      </li>
+
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a style="margin-left: 10px;" href="#" class="d-flex align-items-center text-white text-decoration-none " (click)="signout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <strong style="margin-left: 10px;">SIGN OUT</strong>
+      </a>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="right">    
+  <div class="nav1">
+    <div style="color:azure; float: right; margin: 15px; font-size: 25px;">{{ rxTime | date: 'hh:mm:ss a' }}</div>
+  </div>
+    <div class="info">
+      <h3 style="text-align: center;">Personal Information</h3>
+      <hr>
+      <img style="width: 19%;" src="https://image.flaticon.com/icons/png/512/456/456212.png" alt="img">
+      <div style="float: right; padding-right: 400px;">       
+        <h4>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgb(107, 106, 106)">{{name | uppercase}}</span></h4>
+          <h5>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgb(107, 106, 106)">{{email}}</span></h5>
+          <h5>Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgb(107, 106, 106)">***********</span></h5>
+          <h5>Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgb(107, 106, 106)">{{status | uppercase}}</span></h5>
+          <!-- <h5>Leave Quota:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgb(107, 106, 106)">{{leave_quota}}</span></h5>
+          <h5>Leave Left:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgb(107, 106, 106)">{{leave_left}}</span></h5> -->
+      </div>
+    </div>
+  </div> 
+</main>
+
+
+  </body>
+</html>

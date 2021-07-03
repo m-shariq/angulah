@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+
+</head>
+
+<!-- <body onload="window.print()"> -->
+<body >
+
+    
+    <div class="header"><h2>Leave Form </h2> <button (click)="printPage()" style="float: right; margin-top: -45px; margin-right: 20px; width: 80px;" class="btn btn-primary">Print</button></div>
+    <div class="details">
+        <form>
+            <div class="form-group">
+
+              <label class="title" for="exampleInputEmail1">NAME</label>
+              <p class="text">{{user}}</p>
+
+              <label class="title" for="exampleInputEmail1">EMAIL</label>
+              <p class="text">{{email}}</p>
+
+              <label class="title" for="exampleInputEmail1">DESIGNATION</label>
+              <p class="text">{{status}}</p>
+
+
+              <label class="title" for="exampleInputEmail1">REASON FOR LEAVE</label>
+              <p class="text">{{reason}}</p>
+
+              <label class="title" for="exampleInputEmail1">NUMBER OF DAYS</label>
+              <p class="text">{{numberOfDays}}</p>
+
+              <label class="title" for="exampleInputEmail1">LEAVE START DATE</label>
+              <p class="text">{{startDate}}</p>
+
+              <label class="title" for="exampleInputEmail1">HOD MESSAGE</label>
+              <p class="text">{{hodMessage}}</p>
+
+              <label class="title" for="exampleInputEmail1" style="margin-top: 20px;">APPROVED BY</label>
+              <div class="sign">
+                <p class="signMark1">M. Mujataba</p>
+              </div>
+              <div class="sign">
+                <div class="signMark">{{faculty}} Signature</div>
+              </div>
+              
+              <div class="sign" style="padding-top: 10px;">
+                <p class="signMark1">faisal Shafait</p>
+              </div>
+              <div class="sign">
+                <div class="signMark">{{hod}} Signature</div>
+              </div>
+            </div>
+            
+          </form>
+    
+          
+        </div>
+
+        
+
+</body>
+
+</html>
